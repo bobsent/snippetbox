@@ -11,11 +11,13 @@ import (
 // we want to pass to our HTML templates.
 // At the moment it only contains one field, but we'll add more to it as the build progresses
 type templateData struct {
-	Snippet     *models.Snippet
-	Snippets    []*models.Snippet
-	CurrentYear int // add a CurrentYear field
-	Form        any // add a Form field with the type "any"
-	Flash       string
+	Snippet         *models.Snippet
+	Snippets        []*models.Snippet
+	CurrentYear     int // add a CurrentYear field
+	Form            any // add a Form field with the type "any"
+	Flash           string
+	IsAuthenticated bool
+	CSRFToken       string
 }
 
 // Create a humanDate which returns a nicely formatted string representation of time.Time object.

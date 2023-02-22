@@ -10,8 +10,8 @@ import (
 // Add a NonFieldErrors []string field to the struct, which we will use to hold any validation errors
 // which are not related to a specific form field.
 type Validator struct {
-	FieldErrors    map[string]string
 	NonFieldErrors []string
+	FieldErrors    map[string]string
 }
 
 // Valid returns true if the FieldErrors map doesn't contain any entries.

@@ -2,8 +2,8 @@
 
 {{define "main"}}
 <form action='/user/login' method='POST' novalidate>
-    <!--    Notice that here we are looping over the NonFieldErrors and displaying them
-            if any exist -->
+    <!-- Include the CSRF token -->
+    <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
     {{range .Form.NonFieldErrors}}
         <div class='error'>{{.}}</div>
     {{end}}
@@ -19,7 +19,7 @@
         {{with .Form.FieldErrors.password}}
             <label class='error'>{{.}}</label>
         {{end}}
-        <input type='password' name='password' value='{{.Form.Email}}'>
+        <input type='password' name='password'>
     </div>
     <div>
         <input type='submit' value='Login'>
