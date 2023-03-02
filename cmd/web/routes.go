@@ -50,9 +50,9 @@ func (app *application) routes() http.Handler {
 	// the noSurf middleware will also be sued on the three routes below too
 	protected := dynamic.Append(app.requireAuthentication)
 
-	router.Handler(http.MethodPost, "/user/logout", protected.ThenFunc(app.userLogoutPost))
 	router.Handler(http.MethodGet, "/snippet/create", protected.ThenFunc(app.snippetCreate))
 	router.Handler(http.MethodPost, "/snippet/create", protected.ThenFunc(app.snippetCreatePost))
+	router.Handler(http.MethodPost, "/user/logout", protected.ThenFunc(app.userLogoutPost))
 
 	// Create the middleware chain as normal.
 	standard := alice.New(app.recoverPanic, app.logRequest, secureHeaders)
