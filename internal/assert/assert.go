@@ -2,6 +2,7 @@ package assert
 
 import "testing"
 
+// notice that Equal is a generic function
 func Equal[T comparable](t *testing.T, actual, expected T) {
 	t.Helper()
 

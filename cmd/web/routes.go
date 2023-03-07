@@ -31,6 +31,9 @@ func (app *application) routes() http.Handler {
 	// file will be served (so long as it exists)
 	router.Handler(http.MethodGet, "/static/*filepath", fileServer)
 
+	// Add n new GET /ping route
+	router.HandlerFunc(http.MethodGet, "/ping", ping)
+
 	// Use the nosurf middleware on all our 'dynamic' routes.
 	dynamic := alice.New(app.sessionManager.LoadAndSave, noSurf, app.authenticate)
 
