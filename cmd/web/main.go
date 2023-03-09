@@ -35,8 +35,8 @@ import (
 type application struct {
 	errorLog       *log.Logger
 	infoLog        *log.Logger
-	snippets       *models.SnippetModel // add a snippetsfield to the application struct. This will allow us to make the Snippetmodel object available to our handlers
-	users          *models.UserModel
+	snippets       models.SnippetModelInterface // add a snippetsfield to the application struct. This will allow us to make the Snippetmodel object available to our handlers
+	users          models.UserModelInterface
 	templateCache  map[string]*template.Template // add a templateCache field
 	formDecoder    *form.Decoder                 // add a formDecoder field to hold a pointer to a form.Decoder instance
 	sessionManager *scs.SessionManager           // add a new sessionManager field to the application sruct
